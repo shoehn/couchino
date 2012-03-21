@@ -1,8 +1,8 @@
 require 'jim'
 
-module Soca
+module Couchino
   module Plugins
-    class Jim < Soca::Plugin
+    class Jim < Couchino::Plugin
 
       name 'jim'
 

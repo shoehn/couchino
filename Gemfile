@@ -9,6 +9,7 @@ gem 'jim', '~>0.3.1'
 gem 'compass', '~>0.11'
 gem 'mustache', '~>0.99'
 gem 'coffee-script', '~>2.2'
+gem 'mocha'
 
 group :development do
   gem 'rake'
@@ -19,6 +20,4 @@ group :test do
   gem "shoulda", ">= 0"
 end
 
-group :darwin do
-  gem 'keychain_services', '~>0.1.1'
-end
+

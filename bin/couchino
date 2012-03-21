@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'soca'
+require 'couchino'
 
-Soca::CLI.start
+Couchino::CLI.start

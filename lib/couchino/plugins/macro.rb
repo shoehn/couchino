@@ -1,9 +1,9 @@
 # see http://tinyurl.com/6ab5svl views in coucdb < 1.1.x
 # does not allow you to require modules so we can use couchapp
 # style macros instead
-module Soca
+module Couchino
   module Plugins
-    class Macro < Soca::Plugin
+    class Macro < Couchino::Plugin
 
       name 'macro'
 

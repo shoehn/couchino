@@ -2,21 +2,21 @@ require 'sass/plugin'
 require 'compass'
 require 'compass/logger'
 
-module Soca
+module Couchino
   module Plugins
-    class Compass < Soca::Plugin
+    class Compass < Couchino::Plugin
 
       name 'compass'
 
       def before_build
-        Soca.logger.info "compiling compass"
+        Couchino.logger.info "compiling compass"
 
-        unless Soca.debug
+        unless Couchino.debug
           options = {:logger => ::Compass::NullLogger.new}.merge(self.options)
         end
 
         compass = ::Compass::Compiler.new(app_dir, compass_from, compass_to, ::Compass.sass_engine_options.merge(options || {}))
-        Soca.logger.debug "compass: #{compass.inspect}"
+        Couchino.logger.debug "compass: #{compass.inspect}"
         compass.run
       end
 

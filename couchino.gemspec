@@ -4,15 +4,15 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "soca"
+  s.name = %q{couchino}
   s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Aaron Quint"]
-  s.date = "2012-02-04"
-  s.description = "soca is a different way of writing apps for CouchDB. The structure is up to you."
-  s.email = "aaron@quirkey.com"
-  s.executables = ["soca"]
+  s.authors = [%q{Aaron Quint}]
+  s.date = %q{2012-03-21}
+  s.description = %q{couchino is a different way of writing apps for CouchDB. The structure is up to you.}
+  s.email = %q{shoehn@web.de}
+  s.executables = [%q{couchino}]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
@@ -25,39 +25,39 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md",
     "Rakefile",
-    "bin/soca",
-    "lib/soca.rb",
-    "lib/soca/cli.rb",
-    "lib/soca/plugin.rb",
-    "lib/soca/plugins/coffeescript.rb",
-    "lib/soca/plugins/compass.rb",
-    "lib/soca/plugins/credentials.rb",
-    "lib/soca/plugins/haml.rb",
-    "lib/soca/plugins/jim.rb",
-    "lib/soca/plugins/macro.rb",
-    "lib/soca/plugins/mustache.rb",
-    "lib/soca/pusher.rb",
-    "lib/soca/templates/Jimfile",
-    "lib/soca/templates/config.js.erb",
-    "lib/soca/templates/couchapprc.erb",
-    "lib/soca/templates/css/screen.css",
-    "lib/soca/templates/db/views/by_type/map.js",
-    "lib/soca/templates/hooks/before_build.rb",
-    "lib/soca/templates/index.html.erb",
-    "lib/soca/templates/js/app.js",
-    "lib/soca/templates/js/vendor/jquery-1.7.1.js",
-    "lib/soca/templates/js/vendor/jquery.couch-0.11.js",
-    "lib/soca/templates/js/vendor/sammy-0.7.1.js",
-    "lib/soca/templates/js/vendor/sammy.couch-0.1.0.js",
-    "lib/soca/templates/js/vendor/sha1.js",
-    "lib/soca/templates/rewrites.js.erb",
-    "soca.gemspec",
+    "bin/couchino",
+    "couchino.gemspec",
+    "lib/couchino.rb",
+    "lib/couchino/cli.rb",
+    "lib/couchino/plugin.rb",
+    "lib/couchino/plugins/coffeescript.rb",
+    "lib/couchino/plugins/compass.rb",
+    "lib/couchino/plugins/credentials.rb",
+    "lib/couchino/plugins/haml.rb",
+    "lib/couchino/plugins/jim.rb",
+    "lib/couchino/plugins/macro.rb",
+    "lib/couchino/plugins/mustache.rb",
+    "lib/couchino/pusher.rb",
+    "lib/couchino/templates/Jimfile",
+    "lib/couchino/templates/config.js.erb",
+    "lib/couchino/templates/couchapprc.erb",
+    "lib/couchino/templates/css/screen.css",
+    "lib/couchino/templates/db/views/by_type/map.js",
+    "lib/couchino/templates/hooks/before_build.rb",
+    "lib/couchino/templates/index.html.erb",
+    "lib/couchino/templates/js/app.js",
+    "lib/couchino/templates/js/vendor/jquery-1.7.1.js",
+    "lib/couchino/templates/js/vendor/jquery.couch-0.11.js",
+    "lib/couchino/templates/js/vendor/sammy-0.7.1.js",
+    "lib/couchino/templates/js/vendor/sammy.couch-0.1.0.js",
+    "lib/couchino/templates/js/vendor/sha1.js",
+    "lib/couchino/templates/rewrites.js.erb",
     "test/helper.rb",
     "test/test_compass_plugin.rb",
+    "test/test_couchino_cli.rb",
+    "test/test_couchino_pusher.rb",
     "test/test_credentials_plugin.rb",
     "test/test_macro_plugin.rb",
-    "test/test_soca_cli.rb",
-    "test/test_soca_pusher.rb",
     "test/testapp/.couchapprc",
     "test/testapp/Jimfile",
     "test/testapp/config.js",
@@ -77,10 +77,10 @@ Gem::Specification.new do |s|
     "test/testapp/rewrites.js",
     "test/testapp/templates/index.mustache"
   ]
-  s.homepage = "http://github.com/quirkey/soca"
-  s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "Sammy on CouchApp"
+  s.homepage = %q{http://github.com/shoehn/couchino}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
+  s.summary = %q{Cappuccino on CouchApp}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

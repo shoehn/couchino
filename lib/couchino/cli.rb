@@ -1,7 +1,7 @@
 require 'thor'
 require 'thor/actions'
 
-module Soca
+module Couchino
   class CLI < ::Thor
     include Thor::Actions
 
@@ -16,7 +16,7 @@ module Soca
     class_option "config",
         :aliases => '-c',
         :type => :string,
-        :banner => "use a specific soca config.js"
+        :banner => "use a specific couchino config.js"
 
     class_option "debug",
         :type => :boolean,
@@ -34,14 +34,14 @@ module Soca
     def initialize(*)
       super
       if options[:version]
-        say "soca #{Soca::VERSION}", :red
+        say "couchino #{Couchino::VERSION}", :red
         exit
       end
       self.appdir      = options[:appdir] || File.expand_path(Dir.pwd)
       self.config_file = options[:config]
       self.debug       = self.class.debugging || options[:debug]
       if debug
-        Soca.debug = true
+        Couchino.debug = true
         logger.level = Logger::DEBUG
       end
       self.source_paths << File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
@@ -51,7 +51,7 @@ module Soca
           :type => :string,
           :banner => "set the name of the application for templating. defaults to the basename of the appdir"
 
-    desc 'init [APPDIR]', 'turns any directory into a soca app, generating a config.js'
+    desc 'init [APPDIR]', 'turns any directory into a couchino app, generating a config.js'
     def init(to = nil)
       self.appdir = to if to
       self.destination_root = appdir
@@ -68,7 +68,7 @@ module Soca
           :type => :string,
           :banner => "set the name of the application for templating. defaults to the basename of the appdir"
 
-    desc 'generate [APPDIR]', 'generates the basic soca app structure'
+    desc 'generate [APPDIR]', 'generates the basic couchino app structure'
     def generate(to = nil)
       self.appdir = to if to
       self.destination_root = appdir
@@ -185,11 +185,11 @@ module Soca
     end
 
     def logger
-      Soca.logger
+      Couchino.logger
     end
 
     def pusher(env)
-      Soca::Pusher.new(appdir, env, config_file)
+      Couchino::Pusher.new(appdir, env, config_file)
     rescue => e
       say e.message, :red
       exit

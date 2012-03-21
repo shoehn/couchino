@@ -1,4 +1,4 @@
-module Soca
+module Couchino
   class Pusher
     attr_accessor :app_dir, :env, :document, :config_path, :revision
     attr_reader :config
@@ -19,7 +19,7 @@ module Soca
       if File.readable?(config_path)
         @config = JSON.parse(File.read(config_path))
       else
-        raise "Could not find config at '#{config_path}'. Run `soca init`"
+        raise "Could not find config at '#{config_path}'. Run `couchino init`"
       end
     end
 
@@ -105,7 +105,7 @@ module Soca
     end
 
     def logger
-      Soca.logger
+      Couchino.logger
     end
 
     def run_hooks!(hook)
@@ -137,10 +137,10 @@ module Soca
       if config['plugins']
         @plugins = config['plugins'].map do |plugin_config|
           plugin_name, plugin_options = [plugin_config].flatten
-          require "soca/plugins/#{plugin_name}"
+          require "couchino/plugins/#{plugin_name}"
           plugin_options ||= {}
           plugin_options.each {|k, v| plugin_options[k.to_sym] = v }
-          [plugin_name, Soca::Plugin.plugins[plugin_name].new(self, plugin_options)]
+          [plugin_name, Couchino::Plugin.plugins[plugin_name].new(self, plugin_options)]
         end
       else
         @plugins = []

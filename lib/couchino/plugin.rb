@@ -1,4 +1,4 @@
-module Soca
+module Couchino
   class Plugin
     attr_reader :pusher
     attr_accessor :options
@@ -18,7 +18,7 @@ module Soca
     end
 
     def logger
-      Soca.logger
+      Couchino.logger
     end
 
     def app_dir

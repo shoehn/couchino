@@ -7,7 +7,7 @@ class TestCompassPlugin < Test::Unit::TestCase
 
   context 'compass plugin' do
     setup do
-      @pusher = Soca::Pusher.new(app_path)
+      @pusher = Couchino::Pusher.new(app_path)
     end
 
     context 'given no options' do
@@ -16,7 +16,7 @@ class TestCompassPlugin < Test::Unit::TestCase
           with(@test_app_dir, app_path('sass'), app_path('css'), anything).
           returns(mock(:run => true))
 
-        @plugin = Soca::Plugins::Compass.new(@pusher)
+        @plugin = Couchino::Plugins::Compass.new(@pusher)
         @plugin.before_build
       end
     end
@@ -27,7 +27,7 @@ class TestCompassPlugin < Test::Unit::TestCase
           with(@test_app_dir, app_path('app/sass'), app_path('css'), anything).
           returns(mock(:run => true))
 
-        @plugin = Soca::Plugins::Compass.new(@pusher, :from => 'app/sass')
+        @plugin = Couchino::Plugins::Compass.new(@pusher, :from => 'app/sass')
         @plugin.before_build
       end
     end
@@ -38,7 +38,7 @@ class TestCompassPlugin < Test::Unit::TestCase
           with(@test_app_dir, app_path('sass'), app_path('snoop_dogg/css'), anything).
           returns(mock(:run => true))
 
-        @plugin = Soca::Plugins::Compass.new(@pusher, :to => 'snoop_dogg/css')
+        @plugin = Couchino::Plugins::Compass.new(@pusher, :to => 'snoop_dogg/css')
         @plugin.before_build
       end
     end
@@ -49,7 +49,7 @@ class TestCompassPlugin < Test::Unit::TestCase
           with(@test_app_dir, app_path('app/sass'), app_path('app/css'), anything).
           returns(mock(:run => true))
 
-        @plugin = Soca::Plugins::Compass.new(@pusher, :from => 'app/sass', :to => 'app/css')
+        @plugin = Couchino::Plugins::Compass.new(@pusher, :from => 'app/sass', :to => 'app/css')
         @plugin.before_build
       end
     end

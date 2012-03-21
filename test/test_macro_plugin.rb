@@ -1,10 +1,10 @@
 require 'helper'
 
-class TestSocaPusher < Test::Unit::TestCase
+class TestCouchinoPusher < Test::Unit::TestCase
 
   context "macro plugin" do
     setup do
-      @pusher = Soca::Pusher.new(@test_app_dir)
+      @pusher = Couchino::Pusher.new(@test_app_dir)
       @sammy = File.read("#{@test_app_dir}/js/vendor/sammy-0.5.4.js")
       @views = "#{@test_app_dir}/db/views/"
       @pusher.push!

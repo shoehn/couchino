@@ -1,14 +1,14 @@
 require 'haml'
 
-module Soca
+module Couchino
   module Plugins
-    class Haml < Soca::Plugin
+    class Haml < Couchino::Plugin
 
       name 'haml'
 
       def before_build
         Dir[File.join(haml_from, "**/*.haml")].each do |file|
-          Soca.logger.debug "Running #{file} through Haml."
+          Couchino.logger.debug "Running #{file} through Haml."
           basename = File.basename(file, ".haml")
           dir      = File.dirname(file).sub(/^#{haml_from}/, haml_to)
           new_file = basename + ".html"
@@ -17,7 +17,7 @@ module Soca
           File.open(File.join(dir, new_file), 'w') do |f|
             f << ::Haml::Engine.new(File.read(file)).render
           end
-          Soca.logger.debug "Wrote to #{File.join(dir, new_file)}"
+          Couchino.logger.debug "Wrote to #{File.join(dir, new_file)}"
         end
       end
 

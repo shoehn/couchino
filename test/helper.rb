@@ -6,15 +6,15 @@ require 'compass'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'soca'
-require 'soca/plugins/compass'
-require 'soca/plugins/credentials'
+require 'couchino'
+require 'couchino/plugins/compass'
+require 'couchino/plugins/credentials'
 
 class Test::Unit::TestCase
 
   def setup
     @log = StringIO.new
-    Soca.logger = Logger.new(@log)
+    Couchino.logger = Logger.new(@log)
     @test_app_dir = File.expand_path(File.join(File.dirname(__FILE__), 'testapp')) + '/'
     @new_app_dir  = File.expand_path(File.join(File.dirname(__FILE__), '..', 'tmp', 'newapp'))
     FileUtils.rm_rf(@new_app_dir) if File.directory?(@new_app_dir)

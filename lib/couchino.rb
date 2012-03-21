@@ -6,7 +6,7 @@ require 'logger'
 
 $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__))))
 
-module Soca
+module Couchino
   VERSION = '0.3.2'
 
   class << self
@@ -29,6 +29,6 @@ module Soca
   end
 end
 
-require 'soca/pusher'
-require 'soca/cli'
-require 'soca/plugin'
+require 'couchino/pusher'
+require 'couchino/cli'
+require 'couchino/plugin'

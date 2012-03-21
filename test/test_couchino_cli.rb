@@ -1,8 +1,8 @@
 require 'helper'
 
-class TestSocaCLI < Test::Unit::TestCase
+class TestCouchinoCLI < Test::Unit::TestCase
 
-  context "Soca::CLI" do
+  context "Couchino::CLI" do
 
     context "push" do
       setup do
@@ -11,7 +11,7 @@ class TestSocaCLI < Test::Unit::TestCase
 
       context "with default env" do
         should "push with http put" do
-          Soca::Pusher.any_instance.expects(:put!).twice
+          Couchino::Pusher.any_instance.expects(:put!).twice
           run_cli('push', '--appdir', @test_app_dir)
         end
       end
@@ -100,7 +100,7 @@ class TestSocaCLI < Test::Unit::TestCase
   private
   def run_cli(*args)
     @stdout = capture(:stdout) do
-      Soca::CLI.start(args)
+      Couchino::CLI.start(args)
     end
   end
 

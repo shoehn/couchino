@@ -1,8 +1,8 @@
 require 'mustache'
 
-module Soca
+module Couchino
   module Plugins
-    class Mustache < Soca::Plugin
+    class Mustache < Couchino::Plugin
 
       name 'mustache'
 
@@ -21,9 +21,9 @@ module Soca
           :env => pusher.env,
           :config => pusher.config
         }.merge(options[:vars] || {})
-        Soca.logger.debug "Mustache vars: #{vars.inspect}"
+        Couchino.logger.debug "Mustache vars: #{vars.inspect}"
         files.each do |file|
-          Soca.logger.debug "Running #{file} through mustache."
+          Couchino.logger.debug "Running #{file} through mustache."
           basename = File.basename(file)
           dir      = File.dirname(file)
           parts    = basename.split(/\./)
@@ -31,7 +31,7 @@ module Soca
           File.open(File.join(dir, new_file), 'w') do |f|
             f << ::Mustache.render(File.read(file), vars)
           end
-          Soca.logger.debug "Wrote to #{new_file}"
+          Couchino.logger.debug "Wrote to #{new_file}"
         end
       end
 

@@ -1,6 +1,6 @@
-module Soca
+module Couchino
   module Plugins
-    class Credentials < Soca::Plugin
+    class Credentials < Couchino::Plugin
 
       name 'credentials'
 
@@ -23,25 +23,25 @@ module Soca
           host = $3
 
           unless credentials_supported?(userinfo)
-            Soca.logger.error "#{userinfo} are not supported on the #{RUBY_PLATFORM} platform"
+            Couchino.logger.error "#{userinfo} are not supported on the #{RUBY_PLATFORM} platform"
             puts 'skip'
             next
           end
 
           (username, password) = send(userinfo.downcase, host)
           unless username and password
-            Soca.logger.warn "#{userinfo} returned empty credentials for #{host}"
+            Couchino.logger.warn "#{userinfo} returned empty credentials for #{host}"
           else
             credentials = "#{username}:#{password}@"
             config['couchapprc']['env'][env]['db'] = "#{scheme}#{credentials}#{host}"
-            Soca.logger.debug "Replacing #{userinfo} with #{credentials} in #{cfg['db']}"
+            Couchino.logger.debug "Replacing #{userinfo} with #{credentials} in #{cfg['db']}"
           end
         end
       end
 
       private
       def credentials_supported?(type)
-        Soca.logger.debug "Checking support for #{type} on #{RUBY_PLATFORM}"
+        Couchino.logger.debug "Checking support for #{type} on #{RUBY_PLATFORM}"
         available_credentials = {
           'darwin' => %w[keychain_credentials],
           #'linux' => %w[]
@@ -59,12 +59,12 @@ module Soca
           return
         end
 
-        Soca.logger.debug "Searching for #{host} in keychain"
+        Couchino.logger.debug "Searching for #{host} in keychain"
         item = Keychain.items.find { |item| item if item.label == host }
         unless item
           # strip url-path from host url and search again
           (host, db) = host.split('/', 2)
-          Soca.logger.debug "Searching for #{host} in keychain"
+          Couchino.logger.debug "Searching for #{host} in keychain"
           item = Keychain.items.find { |item| item if item.label == host }
         end
         [item.account, item.password] if item

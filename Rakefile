@@ -1,17 +1,17 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
-require 'soca'
+require 'couchino'
 require 'bundler'
 Bundler.require
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "soca"
-    gem.version = Soca::VERSION
-    gem.summary = %Q{Sammy on CouchApp}
-    gem.description = %Q{soca is a different way of writing apps for CouchDB. The structure is up to you.}
-    gem.email = "aaron@quirkey.com"
-    gem.homepage = "http://github.com/quirkey/soca"
+    gem.name = "couchino"
+    gem.version = Couchino::VERSION
+    gem.summary = %Q{Cappuccino on CouchApp}
+    gem.description = %Q{couchino is a different way of writing apps for CouchDB. The structure is up to you.}
+    gem.email = "shoehn@web.de"
+    gem.homepage = "http://github.com/shoehn/couchino"
     gem.authors = ["Aaron Quint"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

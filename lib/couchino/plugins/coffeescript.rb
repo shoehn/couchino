@@ -1,8 +1,8 @@
 require 'coffee-script'
 
-module Soca
+module Couchino
   module Plugins
-    class CoffeeScript < Soca::Plugin
+    class CoffeeScript < Couchino::Plugin
 
       name 'coffeescript'
 
@@ -21,10 +21,10 @@ module Soca
           :env => pusher.env,
           :config => pusher.config
         }.merge(options[:vars] || {})
-        Soca.logger.debug "CoffeeScript vars: #{vars.inspect}"
+        Couchino.logger.debug "CoffeeScript vars: #{vars.inspect}"
 
         files.each do |file|
-          Soca.logger.debug "Running #{file} through CoffeeScript."
+          Couchino.logger.debug "Running #{file} through CoffeeScript."
           basename = File.basename(file)
           dir      = File.dirname(file)
           parts    = basename.split(/\./)
@@ -34,7 +34,7 @@ module Soca
           File.open(File.join(output_dir, new_file), 'w') do |f|
             f << ::CoffeeScript.compile(File.read(file), vars)
           end
-          Soca.logger.debug "Wrote to #{new_file}"
+          Couchino.logger.debug "Wrote to #{new_file}"
         end
       end
 

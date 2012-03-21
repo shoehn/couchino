@@ -1,10 +1,10 @@
 require 'helper'
 
-class TestSocaPusher < Test::Unit::TestCase
+class TestCouchinoPusher < Test::Unit::TestCase
 
-  context "Soca::Pusher" do
+  context "Couchino::Pusher" do
     setup do
-      @push = Soca::Pusher.new(@test_app_dir)
+      @push = Couchino::Pusher.new(@test_app_dir)
     end
 
     context "init" do

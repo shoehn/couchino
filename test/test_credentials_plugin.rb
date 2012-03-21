@@ -7,8 +7,8 @@ class TestCredentialsPlugin < Test::Unit::TestCase
 
   context 'credentials plugin' do
     setup do
-      @pusher = Soca::Pusher.new(app_path)
-      @plugin = Soca::Plugins::Credentials.new(@pusher)
+      @pusher = Couchino::Pusher.new(app_path)
+      @plugin = Couchino::Plugins::Credentials.new(@pusher)
     end
 
     if RUBY_PLATFORM =~ /darwin/i
